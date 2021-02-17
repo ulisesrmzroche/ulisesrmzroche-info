@@ -1,0 +1,6 @@
+
+```
+pages/
+public/
+styles/
+```
