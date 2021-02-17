@@ -14,6 +14,13 @@
     "react-dom": "17.0.1"
   },
   "devDependencies": {
+    "commitizen": "^4.2.3",
+    "cz-conventional-changelog": "^3.2.0",
     "prettier": "2.2.1"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
   }
 }
