@@ -7,6 +7,21 @@ const InfoCardTitle = () => {
   return <h1 className="card-header-title">@ulisesrmzroche</h1>
 }
 
+const DisabledLink = ({ text, children }) => {
+  return (
+    <a
+      className="panel-block"
+      style={{ cursor: "not-allowed", color: "#aaa" }}
+      href="javascript:void(0)"
+      onClick={(e) => {
+        e.preventDefault()
+      }}
+    >
+      {text || children}
+    </a>
+  )
+}
+
 export default function InfoCard() {
   return (
     <div className={styles.InfoCard}>
@@ -33,16 +48,8 @@ export default function InfoCard() {
           <a className="panel-block" href="https://dev.ulisesrmzroche.me">
             #dev
           </a>
-          <a
-            className="panel-block"
-            style={{ cursor: "not-allowed", color: "#aaa" }}
-            href="/"
-            onClick={(e) => {
-              e.preventDefault()
-            }}
-          >
-            #contact
-          </a>
+          <DisabledLink>#wip</DisabledLink>
+          <DisabledLink>#contact</DisabledLink>
         </nav>
         <div className="card-content">
           <NavSocial />
