@@ -8,6 +8,8 @@ const InfoCardTitle = () => {
 }
 
 const DisabledLink = ({ text, children }) => {
+  if (!text && !children)
+    throw new Error("Requires a text or children prop to work")
   return (
     <a
       className="panel-block"
