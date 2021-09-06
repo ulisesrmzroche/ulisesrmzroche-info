@@ -1,16 +1,32 @@
 import React from "react"
 import { Icon } from "@/components"
-import styles from './index.module.css'
+import styles from "./index.module.css"
+
+const SOCIAL_NETWORKS = [
+  { name: "facebook", href: "https://www.facebook.com/UlisesRamirezRoche" },
+  { name: "twitter", href: "https://www.twitter.com/ulisesrmzroche" },
+  { name: "github", href: "https://www.github.com/ulisesrmzroche" },
+  { name: "linkedin", href: "https://www.linkedin.com/in/ulisesrmzroche" },
+]
+
+const NavSocialNavItem = ({ name, href }) => {
+  return (
+    <a href={href} className="nav-social-nav-item">
+      <Icon name={name} />
+    </a>
+  )
+}
 
 export default function NavSocial() {
   return (
     <nav className={styles.NavSocial}>
-      <a href="https://ulisesrmzroche.dev"><Icon name="facebook" /></a>
-      <a href="https://ulisesrmzroche.dev"><Icon name="twitter" /></a>
-      <a href="https://ulisesrmzroche.dev"><Icon name="instagram" /></a>
-      <a href="https://ulisesrmzroche.dev"><Icon name="github" /></a>
-      <a href="https://ulisesrmzroche.dev"><Icon name="linkedin" /></a>
-      <a href="https://ulisesrmzroche.dev"><Icon name="youtube" /></a>
+      {SOCIAL_NETWORKS.map((network) => {
+        return (
+          <span key={network.href}>
+            <NavSocialNavItem name={network.name} href={network.href} />
+          </span>
+        )
+      })}
     </nav>
-  );
+  )
 }

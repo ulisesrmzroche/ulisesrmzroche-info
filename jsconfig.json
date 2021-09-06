@@ -1,10 +1,11 @@
 {
-    "compilerOptions": {
-      "baseUrl": ".",
-      "paths": {
-        "@/components": ["./src/components/index"],
-        "@/components/*": ["./src/components/*"],
-        "@/styles/*": ["./src/styles/*"]
-      }
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@/components": ["./src/components/index"],
+      "#components": ["./src/components/index"],
+      "@/components/*": ["./src/components/*"],
+      "@/styles/*": ["./src/styles/*"]
     }
   }
+}

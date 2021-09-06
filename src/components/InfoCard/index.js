@@ -1,39 +1,53 @@
-import React from "react";
-import NavSocial from '@/components/NavSocial'
-import styles from "./styles.module.css";
+import React from "react"
+import NavSocial from "@/components/NavSocial"
+import { ProfilePic } from "#components"
+import styles from "./styles.module.css"
+
+const InfoCardTitle = () => {
+  return <h1 className="card-header-title">@ulisesrmzroche</h1>
+}
 
 export default function InfoCard() {
   return (
-      <div className={styles.InfoCard}>
-    <div className="card">
-      <div className="card-header">
-        <h1 className="card-header-title">@ulisesrmzroche</h1>
-      </div>
-      <div className="card-image">
-        <figure classname="image is-square">
-            <img src="/profile-pic.jpg" alt="Placeholder image" />
-        </figure>
-      </div>
-      <div className="card-content">
+    <div className={styles.InfoCard}>
+      <div className="card">
+        <div className="card-header">
+          <InfoCardTitle />
+        </div>
+        <div className="card-image">
+          <figure className="image">
+            <ProfilePic />
+          </figure>
+        </div>
+        <div className="card-content">
           <p>
-              My name is <strong>Ulises Ramirez-Roche </strong>
-              and I'm a software developer, writer, and musician living and working out of Austin TX
-          
+            My name is <strong>Ulises Ramirez-Roche </strong>
+            and I'm a software developer, writer, and musician living and
+            working out of Austin TX
           </p>
-      </div>
-      <nav className="panel">
-        <a className="panel-block" href="https://ulisesrmzroche.blog">
-          Personal Blog
-        </a>
-        <a className="panel-block" href="https://ulisesrmzroche.dev">
-          Dev Blog
-        </a>
-      </nav>
-      <div className="card-content">
-        <NavSocial />
+        </div>
+        <nav className="panel">
+          <a className="panel-block" href="https://blog.ulisesrmzroche.me">
+            #blog
+          </a>
+          <a className="panel-block" href="https://dev.ulisesrmzroche.me">
+            #dev
+          </a>
+          <a
+            className="panel-block"
+            style={{ cursor: "not-allowed", color: "#aaa" }}
+            href="/"
+            onClick={(e) => {
+              e.preventDefault()
+            }}
+          >
+            #contact
+          </a>
+        </nav>
+        <div className="card-content">
+          <NavSocial />
+        </div>
       </div>
     </div>
-
-      </div>
-  );
+  )
 }
