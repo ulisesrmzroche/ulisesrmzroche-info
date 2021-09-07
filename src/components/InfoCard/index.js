@@ -1,62 +1,66 @@
 import React from "react"
-import NavSocial from "@/components/NavSocial"
-import { ProfilePic } from "#components"
+import { ProfilePic, NavSocial, Bio, DisabledLink, NavLink } from "#components"
 import styles from "./styles.module.css"
 
 const InfoCardTitle = () => {
   return <h1 className="card-header-title">@ulisesrmzroche</h1>
 }
 
-const DisabledLink = ({ text, children }) => {
-  if (!text && !children)
-    throw new Error("Requires a text or children prop to work")
+const CardImage = (props) => {
+  const { children } = props
   return (
-    <a
-      className="panel-block"
-      style={{ cursor: "not-allowed", color: "#aaa" }}
-      href="javascript:void(0)"
-      onClick={(e) => {
-        e.preventDefault()
-      }}
-    >
-      {text || children}
-    </a>
+    <div className="card-image">
+      <figure className="image">{children}</figure>
+    </div>
   )
+}
+
+const CardContent = ({ children }) => {
+  return <div className="card-content">{children}</div>
+}
+
+const CardHeader = ({ children }) => {
+  return <div className="card-header">{children}</div>
+}
+
+const NavPanel = ({ children }) => {
+  return <nav className="panel">{children}</nav>
+}
+
+const Card = (props) => {
+  const { className, children } = props
+  return <div className={`card ${className}`}>{children}</div>
 }
 
 export default function InfoCard() {
   return (
-    <div className={styles.InfoCard}>
-      <div className="card">
-        <div className="card-header">
-          <InfoCardTitle />
-        </div>
-        <div className="card-image">
-          <figure className="image">
-            <ProfilePic />
-          </figure>
-        </div>
-        <div className="card-content">
-          <p>
-            My name is <strong>Ulises Ramirez-Roche </strong>
-            and I'm a software developer, writer, and musician living and
-            working out of Austin TX
-          </p>
-        </div>
-        <nav className="panel">
-          <a className="panel-block" href="https://blog.ulisesrmzroche.me">
-            #blog
-          </a>
-          <a className="panel-block" href="https://dev.ulisesrmzroche.me">
-            #dev
-          </a>
-          <DisabledLink>#wip</DisabledLink>
-          <DisabledLink>#contact</DisabledLink>
-        </nav>
-        <div className="card-content">
-          <NavSocial />
-        </div>
-      </div>
-    </div>
+    <Card className={styles.InfoCard}>
+      <CardHeader>
+        <InfoCardTitle />
+      </CardHeader>
+      <CardImage>
+        <ProfilePic />
+      </CardImage>
+      <CardContent>
+        <Bio />
+      </CardContent>
+      <NavPanel>
+        <NavLink
+          className="panel-block"
+          href="https://blog.ulisesrmzroche.me"
+          text="#blog"
+        />
+        <NavLink
+          className="panel-block"
+          href="https://dev.ulisesrmzroche.me"
+          text="#dev"
+        />
+        <DisabledLink className="panel-block" text="#wip" />
+        <DisabledLink className="panel-block" text="#contact" />
+      </NavPanel>
+      <CardContent>
+        <NavSocial />
+      </CardContent>
+    </Card>
   )
 }

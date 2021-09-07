@@ -1,5 +1,5 @@
 import React from "react"
-import { Icon } from "@/components"
+import NavSocialNavItem from "./components/NavSocialNavItem"
 import styles from "./index.module.css"
 
 const SOCIAL_NETWORKS = [
@@ -9,15 +9,7 @@ const SOCIAL_NETWORKS = [
   { name: "linkedin", href: "https://www.linkedin.com/in/ulisesrmzroche" },
 ]
 
-const NavSocialNavItem = ({ name, href }) => {
-  return (
-    <a href={href} className="nav-social-nav-item">
-      <Icon name={name} />
-    </a>
-  )
-}
-
-export default function NavSocial() {
+const NavSocial = () => {
   return (
     <nav className={styles.NavSocial}>
       {SOCIAL_NETWORKS.map((network) => {
@@ -30,3 +22,5 @@ export default function NavSocial() {
     </nav>
   )
 }
+
+export default NavSocial
